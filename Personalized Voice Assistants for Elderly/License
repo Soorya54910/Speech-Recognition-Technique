@@ -1,0 +1,27 @@
+
+---
+
+## 🧠 Code Snippet – `main.py`
+
+```python
+from assistant.voice_input import listen
+from assistant.voice_output import speak
+from assistant.medication_reminder import check_medications
+from assistant.emergency_module import check_emergency
+
+def main():
+    speak("Hello! How can I help you today?")
+    while True:
+        query = listen()
+        if "medication" in query:
+            check_medications()
+        elif "emergency" in query:
+            check_emergency()
+        elif "stop" in query:
+            speak("Goodbye!")
+            break
+        else:
+            speak("Sorry, I didn't catch that.")
+
+if __name__ == "__main__":
+    main()
